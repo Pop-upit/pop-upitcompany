@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta Tags for Browser Compatibility and Responsiveness -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>F-pop-up</title>
+
+  <!-- Google Font for a sophisticated, modern look (Poppins font) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN Link for Styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles (background image for hero section) -->
+  <style>
+    /* Hero Section Background Styling */
+    .hero-section {
+      background-image: url("assets/back9.jpg"); /* Replace with your background image */
+      background-size: cover;
+      background-position: center;
+      height: 100vh; /* Full screen height */
+      padding-top: 6rem; /* Adequate padding for mobile */
+      padding-bottom: 6rem;
+    }
+
+    /* Button Styling for Primary Action */
+    .btn-primary {
+      background-color: #2696ca; /* Darker blue */
+      color: #fff;
+      padding: 14px 24px;
+      font-size: 1.125rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    /* Button Hover Effect */
+    .btn-primary:hover {
+      transform: translateY(-5px);
+      background-color: #065a82; /* Slightly lighter blue */
+      color: white;
+      border-color: #fdfcfd;
+    }
+
+    /* Text Animations for Hero Section */
+    @keyframes zoomInEffect {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Hero Title Animation */
+    .animate-zoomInSkyShadow {
+      animation: zoomInEffect 2s ease-in-out forwards;
+      text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.6); /* Sky-colored text-shadow */
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    /* Hero Description Animation */
+    .animate-zoomInSkyShadow2 {
+      animation: zoomInEffect 2s ease-in-out 0.5s forwards;
+      text-shadow: 3px 3px 6px rgba(108, 108, 128, 0.6); /* Sky-colored text-shadow */
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    /* Section Styles for About, Services, and Why Choose Us */
+    .section-header {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    .service-card {
+      background-color: #f7fafc;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .why-choose-us-card {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer {
+      background-color: #1a202c;
+      color: white;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+      text-align: center;
+    }
+
+    /* Responsive Design for Mobile and Tablet */
+    @media (max-width: 768px) {
+      .hero-section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .btn-primary {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .btn-primary {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+
+      .service-card,
+      .why-choose-us-card {
+        margin-bottom: 1.5rem;
+      }
+    }
+  </style>
+
+</head>
+<body class="font-poppins bg-gray-50">
+
+  <!-- Navigation Bar (Fixed on top) -->
+ <!-- Navbar -->
+<nav class="bg-black text-white fixed top-0 w-full z-50 shadow-lg">
+  <div class="container mx-auto flex justify-between items-center py-6 px-4">
+    <div class="text-2xl font-semibold">
+      <img src="https://i.ibb.co/1dNPY5m/logo.png" alt="Brand Logo" class="logo w-20 h-20 cursor-pointer transition-all glow-effect">
+
+<style>
+  /* Remove border radius */
+  .logo {
+    border-radius: 50px; /* No border radius */
+  }
+
+  /* Flashing light effect */
+  .glow-effect {
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* White glow effect */
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  /* Animation for the flashing light effect */
+  .glow-effect:hover {
+    animation: pulse-glow 1.5s infinite alternate;
+  }
+
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+    }
+    100% {
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  
+</style>
+
+    </div>
+
+    
+    <div class="hidden md:flex space-x-24">
+      <a href="#hero" class="text-lg hover:text-[#2696ca] transition-all">Home</a>
+      <a href="#services" class="text-lg hover:text-[#2696ca] transition-all">Services</a>
+      <a href="#about" class="text-lg hover:text-[#2696ca] transition-all">About</a>
+      <a href="#contact" class="text-lg hover:text-[#2696ca] transition-all">Contact</a>
+      
+    </div>
+    <div class="md:hidden" id="hamburger-icon">
+      <svg xmlns="https://i.ibb.co/1dNPY5m/logo.png" fill="none" viewBox="0 0 12 24" stroke="currentColor" class="h-8 w-8 text-white">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </div>
+  </div>
+  <div class="hidden bg-black text-white space-y-4 py-4" id="mobile-menu">
+    <a href="#home" class="block px-6 py-2">Home</a>
+    <a href="#services" class="block px-6 py-2">Services</a>
+    <a href="#about" class="block px-6 py-2">About</a>
+    <a href="#contact" class="block px-6 py-2">Contact</a>
+  </div>
+</nav>
+
+
+<!-- Hero Section -->
+
+<section id="hero" class="hero-section flex justify-end items-center text-white pt-28 sm:pt-36 md:pt-40 ">
+  <div class="max-w-3xl px-4 relative z-10 text-center"> <!-- Align the text to the right -->
+    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-16 text-black animate-zoomInSkyShadow">
+      Transform Your Digital Presence
+    </h1>
+    <p class="mb-16 text-white animate-zoomInSkyShadow">
+      We specialize in creating stunning, user-friendly websites and software that drive results and leave a lasting impression on your audience.
+    </p>
+    
+      <a href="#contact" class="btn-primary animate-zoomInSkyShadow">Get in Touch</a>
+    
+    
+  </div>
+  <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-0"></div>
+</section>
+
+
+<!-- Hero Section -->
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="section-header text-gray-800">Our Services</h2>
+      <p class="text-lg max-w-2xl mx-auto mb-12 text-gray-600">Our web development and design services are tailored to meet the unique needs of your business. Explore the services we offer below:</p>
+      <div class="flex flex-wrap justify-center gap-8">
+        
+        <!-- Service 1: Web Design -->
+        <div class="w-full sm:w-1/3 px-4 mb-8">
+          <div class="service-card">
+            <h3 class="text-2xl font-semibold mb-4 text-gray-800">Web Design</h3>
+            <p class="text-lg text-gray-600">We create visually stunning, responsive, and user-friendly websites that captivate your audience and convert visitors into customers. Our designs are modern, creative, and aligned with your brand identity.</p>
+          </div>
+        </div>
+
+        <!-- Service 2: Web Development -->
+        <div class="w-full sm:w-1/3 px-4 mb-8">
+          <div class="service-card">
+            <h3 class="text-2xl font-semibold mb-4 text-gray-800">Web Development</h3>
+            <p class="text-lg text-gray-600">From custom coding to CMS integration, we provide robust and scalable web development services. Our team ensures the best performance, security, and functionality for your website.</p>
+          </div>
+        </div>
+
+        <!-- Service 3: E-commerce Solutions -->
+        <div class="w-full sm:w-1/3 px-4 mb-8">
+          <div class="service-card">
+            <h3 class="text-2xl font-semibold mb-4 text-gray-800">E-commerce Solutions</h3>
+            <p class="text-lg text-gray-600">We specialize in building high-performing e-commerce platforms that enhance the shopping experience. From product pages to secure checkout, we ensure that every part of your online store works seamlessly.</p>
+          </div>
+        </div>
+
+        <!-- Service 4: SEO & Marketing -->
+        <div class="w-full sm:w-1/3 px-4 mb-8">
+          <div class="service-card">
+            <h3 class="text-2xl font-semibold mb-4 text-gray-800">SEO & Marketing</h3>
+            <p class="text-lg text-gray-600">Our SEO experts will help your website rank higher on search engines, driving more organic traffic. We also offer comprehensive digital marketing services to ensure your business gets the visibility it deserves.</p>
+          </div>
+        </div>
+
+        <!-- Service 5: Mobile App Development -->
+        <div class="w-full sm:w-1/3 px-4 mb-8">
+          <div class="service-card">
+            <h3 class="text-2xl font-semibold mb-4 text-gray-800">Mobile App Development</h3>
+            <p class="text-lg text-gray-600">Our mobile app development services create custom applications for iOS and Android. Whether it’s a simple app or a complex platform, we ensure a smooth, engaging user experience.</p>
+          </div>
+        </div>
+
+        <!-- Service 6: Branding & Graphics Design -->
+        <div class="w-full sm:w-1/3 px-4 mb-8">
+          <div class="service-card">
+            <h3 class="text-2xl font-semibold mb-4 text-gray-800">Branding & Graphics Design</h3>
+            <p class="text-lg text-gray-600">We offer professional branding services, including logo design, visual identity, and more. Our designs communicate your brand's message clearly and help establish a strong presence in the market.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About section -->
+    <!-- About Section -->
+<section id="about" class="py-24 bg-gray-50">
+  <div class="container mx-auto flex flex-wrap items-center justify-between">
+    <!-- Left Div (Image) -->
+    <div class="w-full sm:w-1/3 md:w-1/3 lg:w-1/3 mb-8 sm:mb-0 flex justify-center">
+      <section id="about" class="py-24 bg-gray-50">
+        <div class="container mx-auto flex flex-wrap items-center justify-between">
+          <!-- Left Div (Image) -->
+          <div class="w-full sm:w-1/3 md:w-1/3 lg:w-1/3 mb-8 sm:mb-0 flex justify-center">
+            <img src="https://i.ibb.co/1dNPY5m/logo.png" alt="Company Logo" class="shadow-lg rounded-lg transition-transform duration-500 ease-in-out transform hover:scale-110 hover:shadow-xl hover:shadow-black max-w-[700px] max-h-[768px]" id="animated-logo">
+          </div>
+        </div>
+      </section>
+      
+      <style>
+        /* Apply border radius and initial shadow to the image */
+        #animated-logo {
+          border-radius: 8px; /* Rounded corners for a more professional look */
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Light shadow for the image */
+          transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; /* Smooth transition for zoom and shadow */
+        }
+      
+        /* Hover effects */
+        #animated-logo:hover {
+          transform: scale(1.1); /* Zoom-in effect on hover */
+          box-shadow: 0 6px 30px rgba(0, 0, 0, 0.5); /* Darker shadow on hover */
+        }
+      
+      </style>
+      
+
+
+    </div>
+
+    <!-- Right Div (Company Description) -->
+    <div class="w-full sm:w-2/3 md:w-2/3 lg:w-2/3">
+      <h2 class="text-3xl sm:text-4xl font-semibold text-gray-800 mb-6">About "FPOP-UP"</h2>
+      <p class="text-lg sm:text-xl text-gray-600 mb-8">At "FPOP-UP", we pride ourselves on delivering innovative and high-quality solutions that empower businesses to grow, succeed, and transform. With years of expertise in [your industry or service area], our team is dedicated to helping clients achieve their goals by providing cutting-edge technology, exceptional service, and a commitment to excellence.</p>
+      <p class="text-lg sm:text-xl text-gray-600">Our mission is to enable organizations of all sizes to unlock their potential, navigate the digital landscape with confidence, and achieve long-term success. We believe in creating partnerships with our clients, offering personalized, reliable services that add value and drive meaningful results. Let us help you bring your vision to life.</p>
+    </div>
+  </div>
+</section>
+
+
+      <!-- About section -->
+
+  <!--Why choose me -->
+ 
+<section id="why-choose-us" class="py-24 bg-white">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl sm:text-4xl font-semibold mb-12 text-gray-800">Why Choose Us</h2>
+    <p class="text-lg sm:text-xl mb-8 text-gray-600 max-w-2xl mx-auto">We are passionate about creating impactful digital experiences that align with your business goals. Here’s why you should work with us:</p>
+    
+    <!-- Why Choose Us Section -->
+     
+
+    
+    <!-- Cards for Reasons to Choose -->
+    <div class="flex flex-wrap justify-center gap-8">
+      
+      <!-- Card 1: Expertise -->
+      <div class="w-full sm:w-1/3 px-4 mb-8">
+        <div class="why-choose-us-card p-6">
+          <div class="mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-blue-500 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveaspectratio="xMidYMid meet" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 2L20 6M20 6L16 10M20 6H6" /></svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Expertise</h3>
+          <p class="text-lg text-gray-600">With over X years of experience in the industry, our team has the expertise to deliver innovative solutions. We stay ahead of the trends and technologies to ensure the highest quality for our clients.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: Customized Solutions -->
+      <div class="w-full sm:w-1/3 px-4 mb-8">
+        <div class="why-choose-us-card p-6">
+          <div class="mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-yellow-500 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveaspectratio="xMidYMid meet" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12h2M12 10v2m10 2a9 9 0 10-18 0 9 9 0 0018 0z" /></svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Customized Solutions</h3>
+          <p class="text-lg text-gray-600">Every business is unique, and we believe in providing tailored solutions that align perfectly with your brand’s goals and audience. Our approach is designed to reflect your business values.</p>
+        </div>
+      </div>
+
+      <!-- Card 3: Timely Delivery -->
+      <div class="w-full sm:w-1/3 px-4 mb-8">
+        <div class="why-choose-us-card p-6">
+          <div class="mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-green-500 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveaspectratio="xMidYMid meet" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M5 5l7 7 7-7" /></svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Timely Delivery</h3>
+          <p class="text-lg text-gray-600">We understand the importance of deadlines. That’s why we prioritize timely delivery, ensuring that your project is completed on schedule without compromising quality.</p>
+        </div>
+      </div>
+
+      <!-- Card 4: Transparent Communication -->
+      <div class="w-full sm:w-1/3 px-4 mb-8">
+        <div class="why-choose-us-card p-6">
+          <div class="mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-red-500 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveaspectratio="xMidYMid meet" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16M4 12h16M4 16h16" /></svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Transparent Communication</h3>
+          <p class="text-lg text-gray-600">We believe in open and honest communication. You’ll be kept in the loop every step of the way, ensuring that all your questions and concerns are addressed promptly and effectively.</p>
+        </div>
+      </div>
+
+      <!-- Card 5: Customer-Centric Approach -->
+      <div class="w-full sm:w-1/3 px-4 mb-8">
+        <div class="why-choose-us-card p-6">
+          <div class="mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-purple-500 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveaspectratio="xMidYMid meet" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M4 12h16" /></svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Customer-Centric Approach</h3>
+          <p class="text-lg text-gray-600">Our focus is always on you and your needs. We take the time to understand your business and your goals to ensure that our work is aligned with your vision and provides lasting value.</p>
+        </div>
+      </div>
+
+      <!-- Card 6: Proven Results -->
+      <div class="w-full sm:w-1/3 px-4 mb-8">
+        <div class="why-choose-us-card p-6">
+          <div class="mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-indigo-500 mb-4 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveaspectratio="xMidYMid meet" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" /></svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">Proven Results</h3>
+          <p class="text-lg text-gray-600">We have a track record of delivering exceptional results for our clients. From increased traffic to higher conversion rates, our work speaks for itself. We are committed to helping you achieve your business goals.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!--Why choose me -->
+
+  <!-- customar review  section -->
+    <!-- Customer Review Section -->
+<section id="reviews" class="py-24 bg-white">
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl sm:text-4xl font-semibold text-gray-800 mb-12">What Our Clients Say</h2>
+    
+    <div class="flex flex-wrap justify-center gap-8">
+      <!-- Review 1 -->
+      <div class="w-full sm:w-1/3 lg:w-1/3 p-6 bg-gray-50 rounded-lg shadow-lg">
+        <div class="flex justify-center mb-4">
+          <img src="https://via.placeholder.com/50" alt="Customer 1" class="rounded-full w-16 h-16 border-2 border-gray-200">
+        </div>
+        <p class="text-lg text-gray-600 italic mb-4">"Working with [Your Company Name] has been an absolute pleasure. Their attention to detail and commitment to excellence has made a huge difference in our business outcomes. I highly recommend their services!"</p>
+        <p class="font-semibold text-gray-800">John Doe</p>
+        <p class="text-sm text-gray-500">CEO, XYZ Corp</p>
+      </div>
+      
+      <!-- Review 2 -->
+      <div class="w-full sm:w-1/3 lg:w-1/3 p-6 bg-gray-50 rounded-lg shadow-lg">
+        <div class="flex justify-center mb-4">
+          <img src="https://via.placeholder.com/50" alt="Customer 2" class="rounded-full w-16 h-16 border-2 border-gray-200">
+        </div>
+        <p class="text-lg text-gray-600 italic mb-4">"The team at [Your Company Name] is incredibly professional and responsive. They took the time to understand our needs and delivered a solution that exceeded our expectations. Highly recommend!"</p>
+        <p class="font-semibold text-gray-800">Jane Smith</p>
+        <p class="text-sm text-gray-500">Marketing Director, ABC Ltd.</p>
+      </div>
+      
+      <!-- Review 3 -->
+      <div class="w-full sm:w-1/3 lg:w-1/3 p-6 bg-gray-50 rounded-lg shadow-lg">
+        <div class="flex justify-center mb-4">
+          <img src="https://via.placeholder.com/50" alt="Customer 3" class="rounded-full w-16 h-16 border-2 border-gray-200">
+        </div>
+        <p class="text-lg text-gray-600 italic mb-4">"We have been extremely impressed with the level of service provided by [Your Company Name]. Their team is knowledgeable, dependable, and always willing to go the extra mile for us. We're grateful for their partnership!"</p>
+        <p class="font-semibold text-gray-800">Mark Williams</p>
+        <p class="text-sm text-gray-500">Operations Manager, DEF Industries</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <!-- Customar review  section -->
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-gray-900 text-white">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="text-3xl lg:text-4xl font-semibold mb-16">Ready to Get Started?</h2>
+      <p class="text-lg sm:text-xl mb-6">Let’s turn your vision into reality. Reach out today to discuss your next project with our team of experts.</p>
+      <button id="contactUsBtn" class="bg-blue-500 text-white py-3 px-6 rounded-lg text-xl">Contact Us</button>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="contactModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white rounded-lg shadow-lg p-8 max-w-md w-full modal-content">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h2>
+      <p class="text-lg text-gray-600 mb-4"><strong>Company Name:</strong> FPOP-UP It Farm </p>
+      <p class="text-lg text-gray-600 mb-4"><strong>Email:</strong> <a href="popupitcomapny@gmail.com" class="text-blue-500">popupitcomapny@gmail.com</a></p>
+      <p class="text-lg text-gray-600 mb-4"><strong>Phone:</strong> +8801751190312</p>
+      <p class="text-lg text-gray-600 mb-4"><strong>Address:</strong> 1234 Business St,Rajshahi,Bangladesh</p>
+      <div class="flex justify-end">
+        <button id="closeModalBtn" class="bg-red-500 text-white py-2 px-4 rounded-lg">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get modal elements
+    const contactModal = document.getElementById('contactModal');
+    const modalContent = document.querySelector('.modal-content');
+    const contactUsBtn = document.getElementById('contactUsBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    // Open the modal with a smooth fade-in and zoom-in effect
+    contactUsBtn.addEventListener('click', () => {
+      contactModal.classList.remove('hidden');
+      setTimeout(() => {
+        contactModal.classList.add('show'); // Show modal with smooth opacity and scale
+        modalContent.classList.add('show-content'); // Show modal content with smooth opacity and translateY effect
+      }, 50); // Slight delay to allow the modal to display and then apply the animation
+    });
+
+    // Close the modal with fade-out effect
+    closeModalBtn.addEventListener('click', () => {
+      modalContent.classList.remove('show-content'); // Hide modal content
+      setTimeout(() => {
+        contactModal.classList.remove('show'); // Hide modal with smooth opacity and scale
+        contactModal.classList.add('hidden'); // Hide the modal container after the animation
+      }, 300); // Delay to allow the content animation to complete before hiding the modal
+    });
+
+    // Optional: Close modal when clicking outside the modal content
+    contactModal.addEventListener('click', (event) => {
+      if (event.target === contactModal) {
+        modalContent.classList.remove('show-content');
+        setTimeout(() => {
+          contactModal.classList.remove('show');
+          contactModal.classList.add('hidden');
+        }, 300);
+      }
+    });
+  </script>
+
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container mx-auto flex flex-wrap justify-between">
+      <div class="w-full sm:w-1/3">
+        <h3 class="text-2xl font-semibold mb-4">Company</h3>
+        <ul>
+          <li><a href="#about" class="block py-2">About Us</a></li>
+          <li><a href="#team" class="block py-2">Our Team</a></li>
+          <li><a href="#careers" class="block py-2">Careers</a></li>
+        </ul>
+      </div>
+      <div class="w-full sm:w-1/3">
+        <h3 class="text-2xl font-semibold mb-4">Services</h3>
+        <ul>
+          <li><a href="#web-design" class="block py-2">Web Design</a></li>
+          <li><a href="#development" class="block py-2">Web Development</a></li>
+          <li><a href="#seo" class="block py-2">SEO & Marketing</a></li>
+        </ul>
+      </div>
+      <div class="w-full sm:w-1/3">
+        <h3 class="text-2xl font-semibold mb-4">Resources</h3>
+        <ul>
+          <li><a href="#blog" class="block py-2">Blog</a></li>
+          <li><a href="#support" class="block py-2">Support</a></li>
+          <li><a href="#contact" class="block py-2">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8">
+      <p>&copy; 2024 FPOP-UP IT FARM . All rights reserved.</p>
+      <div class="mt-4">
+        <a href="#" class="inline-block mx-2 text-yellow-500">Facebook</a>
+        <a href="#" class="inline-block mx-2 text-yellow-500">Twitter</a>
+        <a href="#" class="inline-block mx-2 text-yellow-500">Instagram</a>
+        <a href="#" class="inline-block mx-2 text-yellow-500">Linkedin</a>
+      </div>
+    </div>
+  </footer>
+
+  
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    hamburgerIcon.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+
+</body>
+</html>
